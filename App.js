@@ -41,17 +41,18 @@ export default class App extends Component {
   }
 
   searchData(text) {
-    const newData = this.arrayholder.filter(item => {
-      const itemData = item.name.toUpperCase().replace(/ /g, '');
-      const textData = text.toUpperCase().replace(/ /g, '');
       //  const itemDataArray = itemData.split('');
       //  const textDataArray = textData.split('');
-      // // console.log(itemDataArray.indexOf(textDataArray) > -1
       // const contains = itemDataArray.some(element => {
       //   return textDataArray.indexOf(element) !== -1;
       // });
-      // return contains;
-      return itemData.indexOf(textData) > -1;
+      // return contains;               // this entire version checks character by character 
+
+
+    const newData = this.arrayholder.filter(item => {
+      const itemData = item.name.toUpperCase().replace(/ /g, '');
+      const textData = text.toUpperCase().replace(/ /g, '');
+      return itemData.indexOf(textData) > -1;                     // this entire version checks word by word
     });
   
     this.setState({
